@@ -7,12 +7,23 @@ import Select from "../Select"
 import appwriteSerice from "../../appwrite/config"
 import {useSelector } from "react-redux"
 import {useNavigate} from "react-router-dom"
+import PropTypes, { string } from "prop-types"
+
+PostForm.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string,
+    slug: PropTypes.string,
+    content: PropTypes.string,
+    status: PropTypes.string,
+    featuredImage: PropTypes.string
+  })
+};
 
 
 export default function PostForm({post}){
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues: {
-            tittle: post?.title || "",
+            title: post?.title || "",
             slug: post?.slug || "",
             content: post?.content || "",
             status: post?.status || "active"
