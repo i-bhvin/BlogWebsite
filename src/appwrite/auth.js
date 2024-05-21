@@ -20,7 +20,7 @@ export class AuthService{
             }
             else return userAccount;
         } catch (error) {
-            console.log(error);
+            console.log("Appwrite service :: createAccount() :: ", error);
         }
     }
     async login({email, password}){
